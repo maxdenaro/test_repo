@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Блог веб-разработчика MaxGraph — Статьи</title>
+	<subtitle>Полезные статьи о веб-разработке. Обучение верстке, инструменты, лайфхаки</subtitle>
+	<link href="https://blog.maxgraph.ru" rel="self" />
+	<link href="https://blog.maxgraph.ru" />
+	<id>https://blog.maxgraph.ru/</id>
+	<author>
+		<name>MaxGraph</name>
+		<email>maxgraph23@gmail.com</email>
+	</author>
+</feed>
