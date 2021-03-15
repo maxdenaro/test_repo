@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>CSS Magic #7. Hover-эффект изображений как на Авито | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="CSS Magic #5, делаем эффект наведения, как у Авито">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CSS Magic #7. Hover-эффект изображений как на Авито | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="CSS Magic #5, делаем эффект наведения, как у Авито">
+  <meta property="og:url" content="https://blog.maxgraph.ru/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Magic #7. Hover-эффект изображений как на Авито">
+  <meta name="twitter:description" content="CSS Magic #5, делаем эффект наведения, как у Авито">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <img class="post__image" loading="lazy" src="img/cover.jpg" aria-hidden="true" alt="">
+        
+        <div class="post__props">
+          <span class="post__category">HTML/CSS</span>
+          <time class="post__date" datetime="2019-06-10">10 июня 2019</time>
+          <span class="post__readtime">3 min</span>
+        </div>
+        <h1 class="post__title">CSS Magic #7. Hover-эффект изображений как на Авито</h1>
+        <p class="post__descr">
+          Привет! Новая часть CSS Magic - сделаем интересный ховер-эффект, как у Авито, на чистом CSS
+        </p>
+      </div>
+      <div class="post-content">
+        <p>Совсем недавно заказчик попросил сделать эффект при наведении на изображение как на <em>авито</em> или <em>auto.ru</em>. Там как раз, если чуть пролистнуть, есть блоки с фотографиями и описанием машины, и если наводить на фото — появляется разделение ее на 5 разных фотографий, и в зависимости от области наведения появляются разные фотографии. Удобно. Такая мини-галерея получается. Вот сейчас как раз покажу, как такое делать на примере трех фото.</p>
+<h2>HTML</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://img4.goodfon.ru/wallpaper/nbig/5/6e/abstrakitsiia-fon-polosy-cherno-krasnyi-tsvet.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image-switch<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image-switch-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>switched-image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://img4.goodfon.ru/wallpaper/nbig/5/6e/abstrakitsiia-fon-polosy-cherno-krasnyi-tsvet.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image-switch-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>switched-image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://uwalls.ru/gallery/5/source/29577.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image-switch-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>switched-image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://i.ytimg.com/vi/BwBhaQoiV94/maxresdefault.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>Не самая простая разметка, которая содержит в себе главный блок <code>.image</code>, картинку (которая будет стартовой и так же она же должна быть вставлена в первый «слайд»), а так же область слайдов <code>.image-switch</code> и сами слайды <code>.image-switch-item</code>. Ну и внутри айтемов так же есть сами блоки с картинками <code>.switched-image</code>, они сделаны абсолютом, но об этом ниже.</p>
+<h2>CSS</h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">.image</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span><br>  <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span><br>  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.image-switch</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">z-index</span><span class="token punctuation">:</span> 20<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>  <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">img</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">object-fit</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.image-switch-item</span> <span class="token punctuation">{</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 33.33%<span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br>  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span><br>  <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span><br>  <span class="token property">padding-bottom</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.image-switch-item::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 90%<span class="token punctuation">;</span><br>  <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span>255<span class="token punctuation">,</span>255<span class="token punctuation">,</span> 0.4<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span><br>  <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.switched-image</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span><br>  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span>-50%<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">pointer-events</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.image:hover .image-switch</span> <span class="token punctuation">{</span><br>  <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.image-switch-item:hover .switched-image</span> <span class="token punctuation">{</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br>  <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span><br>  <span class="token property">z-index</span><span class="token punctuation">:</span> -1<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.image-switch-item:hover::after</span> <span class="token punctuation">{</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.3s ease-in-out<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Постараюсь объяснить на пальцах, ибо не совсем ясная структура вырисовывается.</p>
+<ol>
+<li>Итак, у нас есть блок <code>.image</code>, который имеет размеры и центрирован. Внутри него картинка, здесь сделано так, что любая картинка занимает 100% родителя и растягивается, если надо (через <code>object-fit</code>).</li>
+<li>Есть контейнер слайдов - <code>.image-switch</code>. Изначально он абсолютный, растянут на 100% родителя, имеет <code>display: flex</code> для размещения слайдов в строку, а так же скрыт от нас (имеет <code>opacity: 0</code>), чтобы изначально была видна самая первая картинка.</li>
+<li>Есть сами слайды <code>.image-switch-item</code>, они имеют flex для того, чтобы показать белый прямоугольник именно снизу.</li>
+<li>Есть контейнер для фото - <code>.switched-image</code>. Он так же выполнен абсолютом, и обратите внимание, поскольку у <code>.image-switch-item</code> нет ни <code>position: relative</code>, ни <code>position: absolute</code> - он позиционируется от ближайшего элемента с этими свойствами - это элемент <code>.image-switch</code>, т.е. контейнер для слайдов. Это сделано не случайно, а чтобы фотография в итоге была не размером со слайд, а размером с контейнер, т.е. 100% изначальной фотографии. Ну и очень важно, что у них у всех стоит <code>pointer-events: none</code>, с помощью которого эти блоки никак не подчиняются наведению, выделению и т.д.</li>
+<li>Ну и дальше сама магия. Сперва, при наведении на <code>.image</code>, показываем <code>.image-switch</code> - контейнер слайдов, меняя <code>opacity на 1</code>.</li>
+<li>Затем, чтобы показать конкретный слайд, мы при наведении на <code>.image-switch-item</code> меняем у <code>.switched-image</code> opacity на 1. А так же, для того чтобы наши блоки (полупрозрачные белые) остались видны - меняем z-index на -1. Если вам эти мелочи не нужны - вы можете их убрать и так же убрать <code>z-index: -1</code> из стилей.</li>
+<li>Ну и в конце меняем полупрозрачный белый фон на просто белый.</li>
+</ol>
+<p>Вот собственно и все. Надеюсь, Вам было более-менее понятно) Если нет - пишите вопросы в личку или в комментарии - отвечу)</p>
+<p>Как обычно, пен:</p>
+<iframe height="265" style="width: 100%;" scrolling="no" title="CSS Magic #7. Image hover effect" src="//codepen.io/MaxGraph/embed/pmMYQz/?height=265&amp;theme-id=0&amp;default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/MaxGraph/pen/pmMYQz/'>CSS Magic #7. Image hover effect</a> by Maksim (<a href='https://codepen.io/MaxGraph'>@MaxGraph</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
+<p>Успехов Вам, друзья, и до скорого)</p>
+
+      </div>
+      
+      <div class="post-links">
+          <a href="/otpravka-soobshheniya-s-sajta-v-whatsapp/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/prostoj-i-udobnyj-sposob-stilizovat-skroll/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Создаем удобный, доступный и рабочий тултип</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-2/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-2/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 2</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-1/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-1/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 1</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/mnozhestvennaya-otpravka-chekboksov-v-html/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/mnozhestvennaya-otpravka-chekboksov-v-html/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Множественная отправка чекбоксов в HTML</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/css-magic-6-gradient-dlya-teksta/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/css-magic-6-gradient-dlya-teksta/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">CSS Magic #6. Градиент для текста</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>CSS Magic #4. Блюр-эффект (css blur effect) | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="CSS Magic #4, делаем блюр-эффект изображения">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CSS Magic #4. Блюр-эффект (css blur effect) | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="CSS Magic #4, делаем блюр-эффект изображения">
+  <meta property="og:url" content="https://blog.maxgraph.ru/css-magic-4-blyur-effekt-css-blur-effect/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Magic #4. Блюр-эффект (css blur effect)">
+  <meta name="twitter:description" content="CSS Magic #4, делаем блюр-эффект изображения">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/css-magic-4-blyur-effekt-css-blur-effect/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <img class="post__image" loading="lazy" src="img/cover.jpg" aria-hidden="true" alt="">
+        
+        <div class="post__props">
+          <span class="post__category">HTML/CSS</span>
+          <time class="post__date" datetime="2019-04-24">24 апреля 2019</time>
+          <span class="post__readtime">2 min</span>
+        </div>
+        <h1 class="post__title">CSS Magic #4. Блюр-эффект (css blur effect)</h1>
+        <p class="post__descr">
+          Привет! В четвертом выпуске CSS Magic расскажу, как сделать красивый блюр эффект для карточки. Поехали!
+        </p>
+      </div>
+      <div class="post-content">
+        <p>И так, сегодня мы будем делать блюр-эффект. Вот такого типа:</p>
+<img src="img/ex.png" alt="Пример блюр-эффекта">
+<p>Сделать такое можно вполне несложно с помощью <code>filter: blur()</code>. Но, конечно, не все так просто :) Начнем с разметки:</p>
+<h2>HTML</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>block block--blur<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>block__man<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>superman<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figure</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.newsapi.com.au/image/v1/28811c194076a2f2730455884bdf29ae<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figcaption</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>block__caption<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>block__name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Superman<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figcaption</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figure</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>Разметка довольно тривиальная, единственное что тут нужно — это картинка и id для блока. Поехали к магии — CSS. Но сперва первичная разметка:</p>
+<h2>CSS (превичный)</h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">{</span><br>  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span><br>  <span class="token property">font-family</span><span class="token punctuation">:</span> sans-serif<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.block</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>  <span class="token property">min-height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.block__man</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 600px<span class="token selector">;<br><br>  figure</span> <span class="token punctuation">{</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token selector">img</span> <span class="token punctuation">{</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>    <span class="token property">object-fit</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.block__caption</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span><br>  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.block__name</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span><br>  <span class="token property">z-index</span><span class="token punctuation">:</span> 50<span class="token punctuation">;</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Это базовые стили, которые просто делают карточку. Но они тоже важны, поэтому решил разделить.</p>
+<h2>CSS (сама магия)</h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">.block--blur</span> <span class="token punctuation">{</span><br>  <span class="token selector">.block__caption</span> <span class="token punctuation">{</span><br>    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token selector">;<br><br>    &amp;::before, &amp;::after</span> <span class="token punctuation">{</span><br>      <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span><br>      <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>      <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>      <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>      <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>      <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br>      <span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span><br>      <span class="token property">background-position</span><span class="token punctuation">:</span> center bottom<span class="token punctuation">;</span><br>      <span class="token property">background-size</span><span class="token punctuation">:</span> 100% auto<span class="token punctuation">;</span><br>      <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>8px<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token selector">&amp;::before</span> <span class="token punctuation">{</span><br>      <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1.1<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token selector">#superman</span> <span class="token punctuation">{</span><br>    <span class="token selector">.block__caption::before,<br>    .block__caption::after</span> <span class="token punctuation">{</span><br>      <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'https://cdn.newsapi.com.au/image/v1/28811c194076a2f2730455884bdf29ae'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Используем класс-модификатор <code>block--blur</code>. Для подписи (которая и будет блюрена) задаем <code>overflow: hidden</code>. Используем два псевдоэлемента <code>::before</code> и <code>::after</code>, в которых будет фон все той же картинкой. Благодаря <code>background-position: center bottom</code> и <code>background-size: 100% auto</code> выставляем ее как надо. И, конечно же <code>filter: blur(8px)</code> задает сам блюр-эффект.</p>
+<p>Тут еще важный момент - как видите, <code>::before</code> используется со скейлом. Это сделано для того, чтобы не было видно детали блюра от <code>::after</code>. Если уберете скейл с <code>::before</code> - думаю разницу увидите.</p>
+<p>По традиции, пен:</p>
+<iframe height="265" style="width: 100%;" scrolling="no" title="Blured" src="//codepen.io/MaxGraph/embed/Pgawoy/?height=265&amp;theme-id=0&amp;default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/MaxGraph/pen/Pgawoy/'>Blured</a> by Maksim (<a href='https://codepen.io/MaxGraph'>@MaxGraph</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
+<p></p>
+<p>Надеюсь, Вам было интересно. такой эффект я раньше очень долго искал, т.к. он мне нравится. Даже думал сделать на блог, но пока не дошли руки)</p>
+<p>Удачи, и до скорого!</p>
+
+      </div>
+      
+      <div class="post-links">
+          <a href="/igra-prestolov-verstaem-maket-po-serialu/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/podsvechivanie-vvodimogo-znacheniya-v-poiske-na-js-input-highlight-onkeypress/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Создаем удобный, доступный и рабочий тултип</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-2/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-2/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 2</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-1/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-1/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 1</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/mnozhestvennaya-otpravka-chekboksov-v-html/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/mnozhestvennaya-otpravka-chekboksov-v-html/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Множественная отправка чекбоксов в HTML</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">CSS Magic #7. Hover-эффект изображений как на Авито</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/css-magic-6-gradient-dlya-teksta/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/css-magic-6-gradient-dlya-teksta/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">CSS Magic #6. Градиент для текста</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

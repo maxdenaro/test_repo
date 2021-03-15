@@ -1,5 +1,369 @@
 {
   "posts": [
     
+      {
+        "title": "Привет, читатель моего блога!",
+        "url": "/privet-chitatel-moego-bloga/",
+        "cat": "Разное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "ТОП-7 ошибок начинающего фрилансера",
+        "url": "/top-7-oshibok-nachinayushhego-frilansera/",
+        "cat": "ТОПы",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Полезные расширения Chrome для веб-разработчика",
+        "url": "/poleznye-rasshireniya-chrome-dlya-veb-razrabotchika/",
+        "cat": "Софт",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "ТОП-5 сайтов, где можно скачать Mockup",
+        "url": "/top-5-sajtov-gde-mozhno-skachat-mockup/",
+        "cat": "ТОПы",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Как отправлять заявку с сайта в Телеграм?",
+        "url": "/kak-otpravlyat-zayavku-s-sajta-v-telegram/",
+        "cat": "Полезное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Почему начинающие фрилансеры боятся, и как побороть страх?",
+        "url": "/pochemu-nachinayushhie-frilansery-boyatsya-i-kak-poborot-strakh/",
+        "cat": "Фриланс",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Адаптивная таблица на чистом CSS",
+        "url": "/adaptivnaya-tablicza-na-chistom-css/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Как брать заказы на фриланс-бирже?",
+        "url": "/kak-brat-zakazy-na-frilans-birzhe/",
+        "cat": "Фриланс",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Установка reCaptcha на свой сайт",
+        "url": "/ustanovka-recaptcha-na-svoj-sajt/",
+        "cat": "PHP",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Как вывести данные из формы в word?",
+        "url": "/kak-vyvesti-dannye-iz-formy-v-word/",
+        "cat": "PHP",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Изменение активного пункта меню при скролле",
+        "url": "/izmenenie-aktivnogo-punkta-menyu-pri-skrolle/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Добавляем Яндекс.Карты на сайт",
+        "url": "/dobavlyaem-yandekskarty-na-sajt/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Создание cookie-предупреждения для сайта",
+        "url": "/sozdanie-cookie-preduprezhdeniya-dlya-sajta/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Где фрилансеру искать заказчиков? 5 вариантов",
+        "url": "/gde-frilanseru-iskat-zakazchikov-5-variantov/",
+        "cat": "Фриланс",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Как показывать приветствие в зависимости от времени суток?",
+        "url": "/kak-pokazyvat-privetstvie-v-zavisimosti-ot-vremeni-sutok/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Инверсия цвета на css",
+        "url": "/inversiya-czveta-na-css/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Прибавка дней к дате на сайт",
+        "url": "/pribavka-dnej-k-date-na-sajt/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Ограничение на ввод цифр в инпут",
+        "url": "/ogranichenie-na-vvod-czifr-v-input/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Как использовать серверную дату на сайте?",
+        "url": "/kak-ispolzovat-servernuyu-datu-na-sajte/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Как использовать серверную дату на сайте?",
+        "url": "/vyshel-moj-kodstajl/",
+        "cat": "Разное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Создание табов на чистом JS",
+        "url": "/sozdanie-tabov-na-chistom-js/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Лента инстаграма на сайте с помощью js",
+        "url": "/lenta-instagrama-na-sajte-s-pomoshhyu-js/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Относительные единицы vw, vh и vmin. Примеры на scss",
+        "url": "/otnositelnye-ediniczy-vw-vh-i-vmin-primery-na-scss/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Самые непростые темы для начинающих верстальщиков",
+        "url": "/samye-neprostye-temy-dlya-nachinayushhikh-verstalshhikov/",
+        "cat": "Разное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "CSS Magic #1. Красивый hover-эффект",
+        "url": "/css-magic-1-krasivyj-hover-effekt/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "CSS Magic #2. Pulse-эффект для кнопок",
+        "url": "/css-magic-2-pulse-effekt-dlya-knopok/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "CSS Magic #3. Обводка для текста (text-stroke effect)",
+        "url": "/css-magic-3-obvodka-dlya-teksta-text-stroke-effect/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Подсвечивание вводимого значения в поиске на js (input highlight onkeypress)",
+        "url": "/podsvechivanie-vvodimogo-znacheniya-v-poiske-na-js-input-highlight-onkeypress/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "CSS Magic #4. Блюр-эффект (css blur effect)",
+        "url": "/css-magic-4-blyur-effekt-css-blur-effect/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Игра Престолов. Верстаем макет по сериалу",
+        "url": "/igra-prestolov-verstaem-maket-po-serialu/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "SVG Map. Вставляем svg-карту России в HTML и работаем с ней",
+        "url": "/svg-map-vstavlyaem-svg-kartu-rossii-v-html-i-rabotaem-s-nej/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Эффект «перестановки» текста. Shuffle effect for letters",
+        "url": "/effekt-perestanovki-teksta-shuffle-effect-for-letters/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Многострочное обрезание текста с помощью js",
+        "url": "/mnogostrochnoe-obrezanie-teksta-s-pomoshhyu-js/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Взаимодействуем с контентом по скроллу (scroll event)",
+        "url": "/vzaimodejstvuem-s-kontentom-po-skrollu-scroll-event/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "CSS Magic #5. Как сделать изображение в виде параллелограмма?",
+        "url": "/css-magic-5-kak-sdelat-izobrazhenie-v-vide-parallelogramma/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Фиксированное мобильное меню с остановкой скролла",
+        "url": "/fiksirovannoe-mobilnoe-menyu-s-ostanovkoj-skrolla/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "CSS Magic #6. Градиент для текста",
+        "url": "/css-magic-6-gradient-dlya-teksta/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Простой и удобный способ стилизовать скролл",
+        "url": "/prostoj-i-udobnyj-sposob-stilizovat-skroll/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "CSS Magic #7. Hover-эффект изображений как на Авито",
+        "url": "/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Отправка сообщения с сайта в WhatsApp",
+        "url": "/otpravka-soobshheniya-s-sajta-v-whatsapp/",
+        "cat": "JS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Множественная отправка чекбоксов в HTML",
+        "url": "/mnozhestvennaya-otpravka-chekboksov-v-html/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "С чего начать верстку сайта? Для совсем новичков",
+        "url": "/s-chego-nachat-verstku-sajta-dlya-sovsem-novichkov/",
+        "cat": "Разное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Верстка HTML-писем. Часть 1",
+        "url": "/verstka-html-pisem-chast-1/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Верстка HTML-писем. Часть 2",
+        "url": "/verstka-html-pisem-chast-2/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Бесплатные макеты Figma для верстки сайта",
+        "url": "/besplatnye-makety-figma-dlya-verstki-sajta/",
+        "cat": "Полезное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Бесплатные макеты Figma для верстки сайта №2",
+        "url": "/besplatnye-makety-figma-dlya-verstki-sajta-2/",
+        "cat": "Полезное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Большая подборка плагинов на чистом JS для разных задач",
+        "url": "/bolshaya-podborka-plaginov-na-chistom-js-dlya-raznykh-zadach/",
+        "cat": "Полезное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Как скрыть все управляющие элементы с Яндекс карты?",
+        "url": "/kak-skryt-vse-upravlyayushhie-elementy-s-yandeks-karty/",
+        "cat": "Полезное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Об авторе блога",
+        "url": "/ob-avtore-bloga/",
+        "cat": "Разное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Создаем удобный, доступный и рабочий тултип",
+        "url": "/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/",
+        "cat": "HTML/CSS",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Бесплатные макеты Figma для верстки сайта №3",
+        "url": "/besplatnye-makety-figma-dlya-verstki-sajta-3/",
+        "cat": "Полезное",
+        "cover": "img/cover.jpg"
+      },
+    
+      {
+        "title": "Обновление блога 2021",
+        "url": "/obnovlenie-bloga-2021/",
+        "cat": "Разное",
+        "cover": "img/cover.jpg"
+      }
+    
   ]
 }

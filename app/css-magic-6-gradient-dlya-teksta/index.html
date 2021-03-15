@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>CSS Magic #6. Градиент для текста | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="CSS Magic #5, делаем градиент для текста">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CSS Magic #6. Градиент для текста | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="CSS Magic #5, делаем градиент для текста">
+  <meta property="og:url" content="https://blog.maxgraph.ru/css-magic-6-gradient-dlya-teksta/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Magic #6. Градиент для текста">
+  <meta name="twitter:description" content="CSS Magic #5, делаем градиент для текста">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/css-magic-6-gradient-dlya-teksta/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <img class="post__image" loading="lazy" src="img/cover.jpg" aria-hidden="true" alt="">
+        
+        <div class="post__props">
+          <span class="post__category">HTML/CSS</span>
+          <time class="post__date" datetime="2019-05-27">27 мая 2019</time>
+          <span class="post__readtime">1 min</span>
+        </div>
+        <h1 class="post__title">CSS Magic #6. Градиент для текста</h1>
+        <p class="post__descr">
+          Привет! Сегодня у нас небольшая темка - создание градиента для текста через css. К несчастью, это не кроссбраузерный вариант, но тем не менее прекрасно работающий. Подойдет для webkit-браузеров. Поехали!
+        </p>
+      </div>
+      <div class="post-content">
+        <p>Нередко дизайнеры используют градиент для текста, и нам, верстальщикам, приходится все это дело реализовывать. Пока еще не придумано нормальных вариантов сделать градиент для текста, поэтому у нас есть лишь вариант, который поддерживают не все браузеры. Смотрим!</p>
+<h2>HTML</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  My gradiented text<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>Самый обычный html-див.</p>
+<h2>CSS</h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">.text</span> <span class="token punctuation">{</span><br>  <span class="token property">font-family</span><span class="token punctuation">:</span> sans-serif<span class="token punctuation">;</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span><br>  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> yellow<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">-webkit-background-clip</span><span class="token punctuation">:</span> text<span class="token punctuation">;</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span><br>  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Немного магии. Свойства желательно писать именно в таком порядке — <code>background</code>, <code>background-clip</code>, <code>color</code>. Собственно, основную магию как раз и дает <code>background-clip:text</code>, который заливает буквы градиентом, который мы прописали ранее. Ну и чтобы буквы не залились обычный цветом — делаем его прозрачным.</p>
+<p>В сущности, это все, друзья. Посмотреть пен можете тут:</p>
+<iframe height="265" style="width: 100%;" scrolling="no" title="CSS Magic #6. Gradient text" src="//codepen.io/MaxGraph/embed/OYvGzg/?height=265&amp;theme-id=0&amp;default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/MaxGraph/pen/OYvGzg/'>CSS Magic #6. Gradient text</a> by Maksim (<a href='https://codepen.io/MaxGraph'>@MaxGraph</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
+<p>До скорого!</p>
+
+      </div>
+      
+      <div class="post-links">
+          <a href="/prostoj-i-udobnyj-sposob-stilizovat-skroll/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/fiksirovannoe-mobilnoe-menyu-s-ostanovkoj-skrolla/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Создаем удобный, доступный и рабочий тултип</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-2/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-2/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 2</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-1/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-1/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 1</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/mnozhestvennaya-otpravka-chekboksov-v-html/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/mnozhestvennaya-otpravka-chekboksov-v-html/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Множественная отправка чекбоксов в HTML</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">CSS Magic #7. Hover-эффект изображений как на Авито</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>Самые непростые темы для начинающих верстальщиков | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="О том, на какие темы верстальщику лучше обратить внимание">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Самые непростые темы для начинающих верстальщиков | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="О том, на какие темы верстальщику лучше обратить внимание">
+  <meta property="og:url" content="https://blog.maxgraph.ru/samye-neprostye-temy-dlya-nachinayushhikh-verstalshhikov/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Самые непростые темы для начинающих верстальщиков">
+  <meta name="twitter:description" content="О том, на какие темы верстальщику лучше обратить внимание">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/samye-neprostye-temy-dlya-nachinayushhikh-verstalshhikov/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <img class="post__image" loading="lazy" src="img/cover.jpg" aria-hidden="true" alt="">
+        
+        <div class="post__props">
+          <span class="post__category">Разное</span>
+          <time class="post__date" datetime="2019-04-08">08 апреля 2019</time>
+          <span class="post__readtime">2 min</span>
+        </div>
+        <h1 class="post__title">Самые непростые темы для начинающих верстальщиков</h1>
+        <p class="post__descr">
+          Привет! Сегодня важная тема - рассказываю о сложностях для начинающих верстальщиков
+        </p>
+      </div>
+      <div class="post-content">
+        <h2>Классы или id?</h2>
+<p>Одна из самых частых проблем - использование классов или id. Часто начинающие верстальщики видят что-то про id и начинают его использовать где не надо. Давайте сразу определимся - id нужно использовать для js. Допустим, Вам нужно вызвать плагин на определенном блоке - можете использовать id (хотя и это необязательно, разве что сам плагин может быть завязан только на работу с id). Так же, как вариант, это конечно использование плавной прокрутки к якорям. указываете <code>href=&quot;#services&quot;</code>, а у блока пишите <code>id=&quot;services&quot;</code>.</p>
+<p>Но почему собственно id использовать не рекомендуется? Очень просто:</p>
+<ol>
+<li>Ну, во-первых, его можно использовать лишь раз (т.е. если у вас есть <code>id=&quot;services&quot;</code> - больше нигде его написать Вы не сможете). Это лишает нас гибкости и переиспользования.</li>
+<li>На один элемент можно повесить лишь один id. В то время как классов (будь то классы элемента или модификатора) - много.</li>
+<li>id слишком увесистый. Перебить id классом не получится без !important, а его следует по максимуму избегать в верстке.</li>
+</ol>
+<p>Вот собственно этих причин вполне хватит, чтобы отказаться использовать id (как минимум для стилизации).</p>
+<h2>Работа с формами</h2>
+<p>Частая ошибка начинающих - неверное понимание работы тега <code>form</code> и различных <code>input</code>. Например, для двух радиокнопок задаются разные имена, и в итоге можно кликнуть на каждый (хотя это, к примеру, выбор пола). Для группы чекбоксов задаются везде разные имена, хотя нужно писать одно и использовать квадратные скобки, чтобы была возможность отправить все это как пару &quot;ключ: значение&quot; на почту. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Handling_multiple_checkboxes" target="_blank">Как раз тут можно прочесть про это</a>.</p>
+<p>Еще одна из частых ошибок - это неправильное использование <code>label</code> и его атрибута <code>for</code>. Но тут в целом попроще.</p>
+<h2>Использование старых тегов</h2>
+<p>Тут сильно надолго не будем останавливаться, просто скажу - нужно проверять спецификацию, заглядывать в <a href="https://validator.w3.org/" target="_blank">валидатор</a>. И не использовать теги типа <code>font</code>, которые устарели довольно давно.</p>
+<h2>Проблемы с использованием float</h2>
+<p>Да, флоаты уже тоже порядком устарели, но лично я считаю что база по ним обязана быть у любого верстальщика. Мало ли что попадется в проектах. Ну и конечно, главная &quot;особенность&quot; флоатов - это их баг с выпаданием флоат-блоков. Многие начинающие верстальщики этого не замечают и оставляют как есть, а потом это может привести к полностью поехавшей верстке. Используйте <a href="https://codepen.io/MaxGraph/pen/yrabmN" target="_blank">clearfix</a> - и будет Вам счастье :)</p>
+<h2>Position</h2>
+<p>Самая наверное больная тема всех начинающих - это <code>position</code>. Многие начинают делать все через <code>absolute</code>, некоторые двигают элементы, используя <code>relative</code> и <code>top</code>, <code>left</code>, <code>right</code>, <code>bottom</code>, когда есть <code>margin</code>. Это все достаточно непростая тема для понимания, но и не самая сложная. Достаточно просто заучить и попрактиковаться. Кстати, можете посмотреть на мои небольшой пример правильного использования <code>absolute</code>.</p>
+<iframe style="width: 100%;" title="position: absolute good example" src="//codepen.io/MaxGraph/embed/KbGwLE/?height=265&amp;theme-id=0&amp;default-tab=css,result" height="265" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen">See the Pen <a href="https://codepen.io/MaxGraph/pen/KbGwLE/">position: absolute good example</a> by Maksim (<a href="https://codepen.io/MaxGraph">@MaxGraph</a>) on <a href="https://codepen.io">CodePen</a>. </iframe>
+<h2>&lt;img&gt; или background?</h2>
+<p>Последняя на сегодня тема, но тоже довольно важная. Многие используют тег <code>img</code> вместо <code>background-image</code>, и наоборот. Хотя здесь все довольно просто - иконки это фон, а контентные картинки (как картинка к статье, например) - <code>img</code>. Но, есть исключения, например если над иконкой будут производиться какие-либо анимации, бывает, что лучше использовать именно <code>img</code>.</p>
+<p>Это были главные (на мой взгляд) темы из верстки, на которые нужно обратить внимание начинающим верстальщикам. Да, наверняка это не все, но наверное самое важное.</p>
+<p>Пишите свои мысли об этом, может быть у Вас есть какие-то еще предложения.</p>
+<p>А если хотите разбор этих тем от меня - пишите!</p>
+<p>До скорых встреч)</p>
+
+      </div>
+      
+      <div class="post-links">
+          <a href="/css-magic-1-krasivyj-hover-effekt/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/otnositelnye-ediniczy-vw-vh-i-vmin-primery-na-scss/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/obnovlenie-bloga-2021/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">Разное</span>
+                    <img src="/obnovlenie-bloga-2021/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Обновление блога 2021</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/ob-avtore-bloga/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">Разное</span>
+                    <img src="/ob-avtore-bloga/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Об авторе блога</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/s-chego-nachat-verstku-sajta-dlya-sovsem-novichkov/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">Разное</span>
+                    <img src="/s-chego-nachat-verstku-sajta-dlya-sovsem-novichkov/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">С чего начать верстку сайта? Для совсем новичков</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/vyshel-moj-kodstajl/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">Разное</span>
+                    <img src="/vyshel-moj-kodstajl/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Как использовать серверную дату на сайте?</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/privet-chitatel-moego-bloga/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">Разное</span>
+                    <img src="/privet-chitatel-moego-bloga/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Привет, читатель моего блога!</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

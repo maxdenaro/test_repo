@@ -1,0 +1,62 @@
+{
+  "_args": [
+    [
+      "eleventy-plugin-page-assets@0.3.0",
+      "E:\\YandexDisk\\Проекты\\my-sites\\test"
+    ]
+  ],
+  "_from": "eleventy-plugin-page-assets@0.3.0",
+  "_id": "eleventy-plugin-page-assets@0.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-Asojn7H7Lp9NEXbgu2UQhAOAe50qqoh87tvs5MWguIFJ1rDt9fFPZN7um+hdzm0+0BoRUOA9If43FQtXGn55YQ==",
+  "_location": "/eleventy-plugin-page-assets",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "eleventy-plugin-page-assets@0.3.0",
+    "name": "eleventy-plugin-page-assets",
+    "escapedName": "eleventy-plugin-page-assets",
+    "rawSpec": "0.3.0",
+    "saveSpec": null,
+    "fetchSpec": "0.3.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/eleventy-plugin-page-assets/-/eleventy-plugin-page-assets-0.3.0.tgz",
+  "_spec": "0.3.0",
+  "_where": "E:\\YandexDisk\\Проекты\\my-sites\\test",
+  "author": {
+    "name": "victornpb"
+  },
+  "bugs": {
+    "url": "https://github.com/victornpb/eleventy-plugin-page-assets/issues"
+  },
+  "dependencies": {
+    "jsdom": "^16.4.0",
+    "picomatch": "^2.2.2"
+  },
+  "description": "Copy local page assets to permalink folder",
+  "devDependencies": {},
+  "homepage": "https://github.com/victornpb/eleventy-plugin-page-assets#readme",
+  "keywords": [
+    "eleventy",
+    "plugin",
+    "assets",
+    "copy",
+    "resolve"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "eleventy-plugin-page-assets",
+  "peerDependencies": {
+    "@11ty/eleventy": ">=0.8.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victornpb/eleventy-plugin-page-assets.git"
+  },
+  "scripts": {},
+  "version": "0.3.0"
+}

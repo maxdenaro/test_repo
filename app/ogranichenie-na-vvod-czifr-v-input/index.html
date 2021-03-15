@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>Ограничение на ввод цифр в инпут | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="Ограничиваем количество вводимых символов в инпут на JS">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ограничение на ввод цифр в инпут | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="Ограничиваем количество вводимых символов в инпут на JS">
+  <meta property="og:url" content="https://blog.maxgraph.ru/ogranichenie-na-vvod-czifr-v-input/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ограничение на ввод цифр в инпут">
+  <meta name="twitter:description" content="Ограничиваем количество вводимых символов в инпут на JS">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/ogranichenie-na-vvod-czifr-v-input/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <img class="post__image" loading="lazy" src="img/cover.jpg" aria-hidden="true" alt="">
+        
+        <div class="post__props">
+          <span class="post__category">JS</span>
+          <time class="post__date" datetime="2018-09-14">14 сентября 2018</time>
+          <span class="post__readtime">1 min</span>
+        </div>
+        <h1 class="post__title">Ограничение на ввод цифр в инпут</h1>
+        <p class="post__descr">
+          Привет! Снова короткая, но довольно интересная темка со скриптом) Сегодня разберемся, как ограничивать ввод цифр в инпут по определенному количеству. Бывают, например, ситуации, когда нужно сделать дополнительный инпут к телефону, в котором будет добавочный номер из 4 цифр. В таком случае нужно сделать так, чтобы пользователь больше 4 цифр ввести не мог. Как сделать такое на JS - показываю
+        </p>
+      </div>
+      <div class="post-content">
+        <h2>HTML</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>Див, в который мы можем вводить данные.</p>
+<h2>JS</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> maxChars <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.input'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>input<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keydown'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">.</span>length <span class="token operator">>=</span> maxChars<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> maxChars<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>input<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keyup'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">.</span>length <span class="token operator">>=</span> maxChars<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> maxChars<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Логика максимально проста. Задаем количество символов в переменной <code>maxChars</code>. Затем, используя события нажатия/отпуская кнопок - пишем функции. Внутри функции условие - если длина вводимых данных больше или равна <code>maxChars</code> - о, используем метод <code>substr</code>, чтобы удалить ненужные вводимые символы ПОСЛЕ четырех введенных.</p>
+
+      </div>
+      
+      <div class="post-links">
+          <a href="/kak-ispolzovat-servernuyu-datu-na-sajte/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/pribavka-dnej-k-date-na-sajt/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/otpravka-soobshheniya-s-sajta-v-whatsapp/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/otpravka-soobshheniya-s-sajta-v-whatsapp/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Отправка сообщения с сайта в WhatsApp</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/prostoj-i-udobnyj-sposob-stilizovat-skroll/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/prostoj-i-udobnyj-sposob-stilizovat-skroll/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Простой и удобный способ стилизовать скролл</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/fiksirovannoe-mobilnoe-menyu-s-ostanovkoj-skrolla/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/fiksirovannoe-mobilnoe-menyu-s-ostanovkoj-skrolla/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Фиксированное мобильное меню с остановкой скролла</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/vzaimodejstvuem-s-kontentom-po-skrollu-scroll-event/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/vzaimodejstvuem-s-kontentom-po-skrollu-scroll-event/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Взаимодействуем с контентом по скроллу (scroll event)</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/mnogostrochnoe-obrezanie-teksta-s-pomoshhyu-js/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/mnogostrochnoe-obrezanie-teksta-s-pomoshhyu-js/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Многострочное обрезание текста с помощью js</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/effekt-perestanovki-teksta-shuffle-effect-for-letters/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/effekt-perestanovki-teksta-shuffle-effect-for-letters/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Эффект «перестановки» текста. Shuffle effect for letters</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>Создаем удобный, доступный и рабочий тултип | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="В этой статье расскажу, как сделать простой тултип с поддержкой доступности на HTML и CSS">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Создаем удобный, доступный и рабочий тултип | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="В этой статье расскажу, как сделать простой тултип с поддержкой доступности на HTML и CSS">
+  <meta property="og:url" content="https://blog.maxgraph.ru/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Создаем удобный, доступный и рабочий тултип">
+  <meta name="twitter:description" content="В этой статье расскажу, как сделать простой тултип с поддержкой доступности на HTML и CSS">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <div class="post__video">
+            <iframe src="https://www.youtube.com/embed/hp9djTkraMo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        
+        <div class="post__props">
+          <span class="post__category">HTML/CSS</span>
+          <time class="post__date" datetime="2021-03-10">10 марта 2021</time>
+          <span class="post__readtime">3 min</span>
+        </div>
+        <h1 class="post__title">Создаем удобный, доступный и рабочий тултип</h1>
+        <p class="post__descr">
+          Привет! В этой статье расскажу, как сделать простой тултип с поддержкой доступности на HTML и CSS. Поехали!
+        </p>
+      </div>
+      <div class="post-content">
+        <h2>Что такое тултип?</h2>
+<p>Тултип — это всплывающее уведомление, как правило работающее по наведению или по клику.
+<span class="tooltip">
+<button class="tooltip__btn" aria-describedby="one">Часто</button>
+<span class="tooltip__txt" role="tooltip" id="one">
+<span class="visually-hidden">Тултип: </span>
+Часто — значит почти всегда))
+</span>
+</span> можно увидеть в интернет-магазинах.
+И на слове «часто» на этой странице вы тоже можете увидеть тултип.</p>
+<p>Казалось бы все просто — сделай див в диве да по ховеру покажи внутренний див и все. Но не тут то было. Давайте разбираться.</p>
+<h2>Что нужно для правильного тултипа?</h2>
+<p>Делать исключительно див в диве нельзя, так как это будет крайне недоступно. Пользователи с ограниченными возможностями просто не смогут никак узнать информацию из тултипа, прочесть ее и понять что в ней. Мы должны им помочь, и это делается стандартными средствами html — с помощью
+<span class="tooltip">
+<button class="tooltip__btn" aria-describedby="two">aria-атрибутов</button>
+<span class="tooltip__txt" role="tooltip" id="two">
+<span class="visually-hidden">Тултип: </span>
+Атрибуты, помогающие расширить привычные возможности HTML в план доступности. Добавляют специальные описания и т.д.
+</span>
+</span>.</p>
+<p>Ну вот и представье, что на сайт заходит незрячий человек. Он не сможет никак навестись мышкой на тултип, значит ему нужно альтернативное действие. И оно есть — состояние <code>:focus</code>. Так, он сможет лишь с клавиши <em>tab</em> попасть на любой интерактивный элемент страницы, и тултип мы должны сделать таковым.</p>
+<div class="note">
+  <p>
+    <strong>Примечание:</strong>
+    Сперва мы&nbsp;сделаем первый из&nbsp;двух видов тултипа&nbsp;&mdash; описательный. Еще есть &laquo;уведомляющий&raquo;, о&nbsp;нем позже.
+  </p>
+</div>
+<h2>HTML</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip__btn<span class="token punctuation">"</span></span> <span class="token attr-name">aria-describedby</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>some_id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Термин<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip__txt<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>some_id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>visually-hidden<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Тултип: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><br>    Описание термина<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
+<p>Итак, что же здесь:</p>
+<ul>
+<li>У нас есть спан-родитель с классом <code>.tooltip</code> для того, чтобы удобно относительно него располагать сам тултип.</li>
+<li>Внутри два элемента — кнопка, открывающая тултип, а также спан с текстом — описанием.</li>
+<li>Кнопка и спан связаны между собой засчет атрибута <code>aria-describedby</code> и <code>id</code>. Тут мы просто говорим, что хотим по действию на кнопку услышать то, что в спане, если грубо говоря.</li>
+<li>У тултипа есть специальный атрибут <code>role</code> со значением <code>tooltip</code>. Это позволяет превратить наш обычный спан-элемент в доступный тултип-элемент.</li>
+<li>Еще внутри тултипа есть спан с текстом <strong>Тултип:</strong>. Это для того, чтобы экранная читалка явно сказала пользователю, что он слышит содержимое тултипа.</li>
+</ul>
+<h2>CSS</h2>
+<pre class="language-css"><code class="language-css"><span class="token selector">.tooltip</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.tooltip__btn</span> <span class="token punctuation">{</span><br>  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br>  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 1px dashed currentColor<span class="token punctuation">;</span><br>  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> #000<span class="token punctuation">;</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span><br>  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.tooltip__txt</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100% + 5px<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">z-index</span><span class="token punctuation">:</span> 3<span class="token punctuation">;</span><br>  <span class="token property">padding</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> max-content<span class="token punctuation">;</span><br>  <span class="token property">max-width</span><span class="token punctuation">:</span> 370px<span class="token punctuation">;</span><br>  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 0 29px <span class="token function">rgb</span><span class="token punctuation">(</span>0 0 0&amp;nbsp<span class="token punctuation">;</span>/ 32%<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">font-weight</span><span class="token punctuation">:</span> 400<span class="token punctuation">;</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span><br>  <span class="token property">line-height</span><span class="token punctuation">:</span> 200%<span class="token punctuation">;</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span><br>  <span class="token property">background</span><span class="token punctuation">:</span> #222<span class="token punctuation">;</span><br>  <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span><br>  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>10px<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">transition</span><span class="token punctuation">:</span> opacity .3s ease-in-out<span class="token punctuation">,</span>transform .3s ease-in-out<span class="token punctuation">,</span>visibility .3s ease-in-out<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.tooltip__btn:hover + .tooltip__txt</span> <span class="token punctuation">{</span><br>  <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span><br>  <span class="token property">visibility</span><span class="token punctuation">:</span> visible<span class="token punctuation">;</span><br>  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.tooltip__btn:focus + .tooltip__txt</span> <span class="token punctuation">{</span><br>  <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span><br>  <span class="token property">visibility</span><span class="token punctuation">:</span> visible<span class="token punctuation">;</span><br>  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.visually-hidden</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span><br>  <span class="token property">margin</span><span class="token punctuation">:</span> -1px<span class="token punctuation">;</span><br>  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span><br>  <span class="token property">border</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">clip</span><span class="token punctuation">:</span> <span class="token function">rect</span><span class="token punctuation">(</span>0 0 0 0<span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>В целом простой, несложный код. Просто делаем блок внутри блока и показываем его. Тут ключевая особенность как раз в методе показа — не только по ховеру, но и по фокусу, чтобы с клавиатуры легко «достать» элемент. И тут как раз нам помогает кнопка, которая этот самый фокус по умолчанию имеет.</p>
+<p>Вот так делается тултип с описанием. Их примеры есть в текущей статье, а также иногда будут встречаться и в иных моих статьях.
+А теперь давайте к тултипу-уведомлению. CSS там будет тот же, а вот html другой.</p>
+<h2>HTML (тултип-уведомление)</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip__btn<span class="token punctuation">"</span></span> <span class="token attr-name">aria-labelledby</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>warn-tooltip<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>use</span> <span class="token attr-name"><span class="token namespace">xlink:</span>href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#warn<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>use</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip__txt<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltip<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>warn-tooltip<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Уведомление!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
+<p>В сущности, тут все тоже самое, кроме пары нюансов:</p>
+<ul>
+<li>Отсутствует текст в кнопке. Он и не нужен, при фокусе нужно сразу читать содержимое тултипа.</li>
+<li><code>aria-describedby</code> поменялся на <code>aria-labelledby</code>. Это как раз и меняет работу тултипа.</li>
+</ul>
+<p>Теперь вместо того, чтобы читать сам термин и его расшифровку, тултип просто будет о чем-то уведомлять пользователя. Удобно)</p>
+<p>Надеюсь, вам все было понятно. Рекомендую также ознакомиться со статьей: <a href="https://inclusive-components.design/tooltips-toggletips/" target="_blank">ссылка</a>, а также посмотреть видео (в начале статьи) и примеры на гитхаб (ссылка в конце статьи).</p>
+<p>Ну и увидимся еще. Удачи!</p>
+
+      </div>
+      
+        <div class="post-sources">
+          Исходники по данной теме:
+          <a href="https://github.com/maxdenaro/maxgraph-youtube-source/tree/master/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%B5%D0%BC%20%D1%83%D0%B4%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9%2C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B9%20%D0%B8%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%82%D1%83%D0%BB%D1%82%D0%B8%D0%BF" target="_blank" class="post-sources__link">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#link"></use>
+            </svg>
+            github
+          </a>
+        </div>
+      
+      <div class="post-links">
+          <a href="/besplatnye-makety-figma-dlya-verstki-sajta-3/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/ob-avtore-bloga/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-2/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-2/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 2</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/verstka-html-pisem-chast-1/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/verstka-html-pisem-chast-1/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Верстка HTML-писем. Часть 1</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/mnozhestvennaya-otpravka-chekboksov-v-html/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/mnozhestvennaya-otpravka-chekboksov-v-html/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Множественная отправка чекбоксов в HTML</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">CSS Magic #7. Hover-эффект изображений как на Авито</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/css-magic-6-gradient-dlya-teksta/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">HTML/CSS</span>
+                    <img src="/css-magic-6-gradient-dlya-teksta/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">CSS Magic #6. Градиент для текста</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

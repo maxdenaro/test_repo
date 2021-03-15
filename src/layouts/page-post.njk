@@ -1,6 +1,5 @@
 {% include 'header-post.njk' %}
 
-<h1 class="visually-hidden">Блог MaxGraph</h1>
 <main class="main">
   <div class="container post-container grid">
     <article class="post">
@@ -16,7 +15,7 @@
         {% endif %}
         <div class="post__props">
           <span class="post__category">{{ cat }}</span>
-          <time class="post__date">{{ date | dateformat }}</time>
+          <time class="post__date" datetime="{{date}}">{{ date | dateformat }}</time>
           <span class="post__readtime">{{ content | readingTime }}</span>
         </div>
         <h1 class="post__title">{{title}}</h1>

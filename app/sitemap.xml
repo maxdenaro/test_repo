@@ -1,35 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.maxgraph.ru/blog/adaptivnaya-tablicza-na-chistom-css/</loc>
+    <loc>https://blog.maxgraph.ru/privet-chitatel-moego-bloga/</loc>
+    <lastmod>Sun Aug 27 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/top-7-oshibok-nachinayushhego-frilansera/</loc>
+    <lastmod>Sat Sep 02 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/poleznye-rasshireniya-chrome-dlya-veb-razrabotchika/</loc>
+    <lastmod>Fri Sep 15 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/top-5-sajtov-gde-mozhno-skachat-mockup/</loc>
+    <lastmod>Sat Oct 14 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/kak-otpravlyat-zayavku-s-sajta-v-telegram/</loc>
+    <lastmod>Wed Oct 18 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/pochemu-nachinayushhie-frilansery-boyatsya-i-kak-poborot-strakh/</loc>
+    <lastmod>Sun Oct 22 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/adaptivnaya-tablicza-na-chistom-css/</loc>
     <lastmod>Thu Oct 26 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
   </url>
   <url>
-    <loc>https://blog.maxgraph.ru/blog/besplatnye-makety-figma-dlya-verstki-sajta/</loc>
+    <loc>https://blog.maxgraph.ru/kak-brat-zakazy-na-frilans-birzhe/</loc>
+    <lastmod>Tue Oct 31 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/ustanovka-recaptcha-na-svoj-sajt/</loc>
+    <lastmod>Wed Dec 20 2017 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/kak-vyvesti-dannye-iz-formy-v-word/</loc>
+    <lastmod>Wed Jan 03 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/izmenenie-aktivnogo-punkta-menyu-pri-skrolle/</loc>
+    <lastmod>Tue Jan 23 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/dobavlyaem-yandekskarty-na-sajt/</loc>
+    <lastmod>Sat Feb 03 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/sozdanie-cookie-preduprezhdeniya-dlya-sajta/</loc>
+    <lastmod>Tue Feb 13 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/gde-frilanseru-iskat-zakazchikov-5-variantov/</loc>
+    <lastmod>Fri Mar 02 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/kak-pokazyvat-privetstvie-v-zavisimosti-ot-vremeni-sutok/</loc>
+    <lastmod>Sat Jun 16 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/inversiya-czveta-na-css/</loc>
+    <lastmod>Thu Sep 06 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/pribavka-dnej-k-date-na-sajt/</loc>
+    <lastmod>Wed Sep 12 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/ogranichenie-na-vvod-czifr-v-input/</loc>
+    <lastmod>Fri Sep 14 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/kak-ispolzovat-servernuyu-datu-na-sajte/</loc>
+    <lastmod>Sat Oct 13 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/vyshel-moj-kodstajl/</loc>
+    <lastmod>Sat Oct 13 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/sozdanie-tabov-na-chistom-js/</loc>
+    <lastmod>Wed Oct 24 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/lenta-instagrama-na-sajte-s-pomoshhyu-js/</loc>
+    <lastmod>Sun Oct 28 2018 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/otnositelnye-ediniczy-vw-vh-i-vmin-primery-na-scss/</loc>
+    <lastmod>Thu Apr 04 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/samye-neprostye-temy-dlya-nachinayushhikh-verstalshhikov/</loc>
+    <lastmod>Mon Apr 08 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/css-magic-1-krasivyj-hover-effekt/</loc>
+    <lastmod>Wed Apr 10 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/css-magic-2-pulse-effekt-dlya-knopok/</loc>
+    <lastmod>Sun Apr 14 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/css-magic-3-obvodka-dlya-teksta-text-stroke-effect/</loc>
+    <lastmod>Wed Apr 17 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/podsvechivanie-vvodimogo-znacheniya-v-poiske-na-js-input-highlight-onkeypress/</loc>
+    <lastmod>Fri Apr 19 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/css-magic-4-blyur-effekt-css-blur-effect/</loc>
+    <lastmod>Wed Apr 24 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/igra-prestolov-verstaem-maket-po-serialu/</loc>
+    <lastmod>Wed Apr 24 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/svg-map-vstavlyaem-svg-kartu-rossii-v-html-i-rabotaem-s-nej/</loc>
+    <lastmod>Fri Apr 26 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/effekt-perestanovki-teksta-shuffle-effect-for-letters/</loc>
+    <lastmod>Thu May 02 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/mnogostrochnoe-obrezanie-teksta-s-pomoshhyu-js/</loc>
+    <lastmod>Thu May 09 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/vzaimodejstvuem-s-kontentom-po-skrollu-scroll-event/</loc>
+    <lastmod>Thu May 16 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/css-magic-5-kak-sdelat-izobrazhenie-v-vide-parallelogramma/</loc>
+    <lastmod>Mon May 20 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/fiksirovannoe-mobilnoe-menyu-s-ostanovkoj-skrolla/</loc>
+    <lastmod>Thu May 23 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/css-magic-6-gradient-dlya-teksta/</loc>
+    <lastmod>Mon May 27 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/prostoj-i-udobnyj-sposob-stilizovat-skroll/</loc>
+    <lastmod>Mon Jun 03 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/css-magic-7-hover-effekt-izobrazhenij-kak-na-avito/</loc>
+    <lastmod>Mon Jun 10 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/otpravka-soobshheniya-s-sajta-v-whatsapp/</loc>
+    <lastmod>Thu Jul 11 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/mnozhestvennaya-otpravka-chekboksov-v-html/</loc>
+    <lastmod>Mon Oct 14 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/s-chego-nachat-verstku-sajta-dlya-sovsem-novichkov/</loc>
+    <lastmod>Tue Oct 22 2019 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/verstka-html-pisem-chast-1/</loc>
+    <lastmod>Wed Feb 12 2020 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/verstka-html-pisem-chast-2/</loc>
+    <lastmod>Thu Feb 13 2020 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/besplatnye-makety-figma-dlya-verstki-sajta/</loc>
     <lastmod>Thu Apr 16 2020 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
   </url>
   <url>
-    <loc>https://blog.maxgraph.ru/blog/besplatnye-makety-figma-dlya-verstki-sajta-2/</loc>
+    <loc>https://blog.maxgraph.ru/besplatnye-makety-figma-dlya-verstki-sajta-2/</loc>
     <lastmod>Fri Jul 10 2020 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
   </url>
   <url>
-    <loc>https://blog.maxgraph.ru/blog/bolshaya-podborka-plaginov-na-chistom-js-dlya-raznykh-zadach/</loc>
+    <loc>https://blog.maxgraph.ru/bolshaya-podborka-plaginov-na-chistom-js-dlya-raznykh-zadach/</loc>
     <lastmod>Tue Sep 29 2020 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
   </url>
   <url>
-    <loc>https://blog.maxgraph.ru/blog/besplatnye-makety-figma-dlya-verstki-sajta-3/</loc>
+    <loc>https://blog.maxgraph.ru/kak-skryt-vse-upravlyayushhie-elementy-s-yandeks-karty/</loc>
+    <lastmod>Mon Feb 22 2021 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/ob-avtore-bloga/</loc>
+    <lastmod>Wed Mar 10 2021 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/sozdaem-udobnyj-dostupnyj-i-rabochij-tultip/</loc>
+    <lastmod>Wed Mar 10 2021 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/besplatnye-makety-figma-dlya-verstki-sajta-3/</loc>
     <lastmod>Fri Mar 12 2021 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
   </url>
   <url>
-    <loc>https://blog.maxgraph.ru/feed/feed.xml</loc>
-    <lastmod>Mon Mar 15 2021 00:41:14 GMT+0300 (GMT+03:00)</lastmod>
+    <loc>https://blog.maxgraph.ru/obnovlenie-bloga-2021/</loc>
+    <lastmod>Mon Mar 15 2021 03:00:00 GMT+0300 (GMT+03:00)</lastmod>
   </url>
   <url>
     <loc>https://blog.maxgraph.ru/</loc>
-    <lastmod>Mon Mar 15 2021 00:41:14 GMT+0300 (GMT+03:00)</lastmod>
+    <lastmod>Mon Mar 15 2021 13:56:23 GMT+0300 (GMT+03:00)</lastmod>
   </url>
   <url>
     <loc>https://blog.maxgraph.ru/search-feed.json</loc>
-    <lastmod>Mon Mar 15 2021 00:41:14 GMT+0300 (GMT+03:00)</lastmod>
+    <lastmod>Mon Mar 15 2021 13:56:23 GMT+0300 (GMT+03:00)</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.maxgraph.ru/feed/feed.xml</loc>
+    <lastmod>Mon Mar 15 2021 13:56:23 GMT+0300 (GMT+03:00)</lastmod>
   </url>
 </urlset>

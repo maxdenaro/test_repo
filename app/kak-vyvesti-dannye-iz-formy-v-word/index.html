@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>Как вывести данные из формы в word? | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="Как вывести данные из формы в word? Рассказываю в статье">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Как вывести данные из формы в word? | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="Как вывести данные из формы в word? Рассказываю в статье">
+  <meta property="og:url" content="https://blog.maxgraph.ru/kak-vyvesti-dannye-iz-formy-v-word/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Как вывести данные из формы в word?">
+  <meta name="twitter:description" content="Как вывести данные из формы в word? Рассказываю в статье">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/kak-vyvesti-dannye-iz-formy-v-word/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <div class="post__video">
+            <iframe src="https://www.youtube.com/embed/lO56E5bCHkE"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        
+        <div class="post__props">
+          <span class="post__category">PHP</span>
+          <time class="post__date" datetime="2018-01-03">03 января 2018</time>
+          <span class="post__readtime">2 min</span>
+        </div>
+        <h1 class="post__title">Как вывести данные из формы в word?</h1>
+        <p class="post__descr">
+          Привет! Сегодня расскажу, как можно выводить данные из формы прямо в документ docx. Ну и если вам удобно видео - посмотрите его выше)
+        </p>
+      </div>
+      <div class="post-content">
+        <h2>Начало</h2>
+<p>Давайте начинать. Первое, что нам нужно будет сделать — это настройка локального сервера Open Server (или аналоги). Ну либо вы можете сразу на хостинг выполнять данные действия, тут уж как удобно.</p>
+<p>Создаем в папке <em>domains</em> папку проекта, убеждаемся что версия PHP 7.1 или выше, и все будет хорошо.</p>
+<p>Создаем в папке два файла — index.html, word.php и добавляем файлик-шаблон в формате docx (его можно найти по ссылке на гитхаб внизу поста).</p>
+<h2>Устанавливаем библиотеку</h2>
+<p>Мы будем использовать библиотеку <a href="https://github.com/PHPOffice/PHPWord" target="_blank">PHPWord</a> для нашей реализации. Скачать ее просто кнопкой download нельзя, нужно будет ставить специальную утилиту <a href="https://getcomposer.org/" target="_blank">composer</a>. По факту, это тоже самое что npm, но только для PHP.</p>
+<p>При установке <em>composer</em> вас попросят выбрать специальный файлик php, который соответствует выбранной версии языка. Идем в <em>OSPanel/modules/php/ваша_версия</em> и находим там файлик php.exe, его и выбираем.</p>
+<p>Ну и после установки <em>composer</em> вы можете использовать консоль OSPanel для установки этой утилиты. Все происходит также, как при npm — <code>composer require phpoffice/phpword</code>. Не забудьте через консоль перейти в нужную папку.</p>
+<p>Более детально и наглядно процесс установки показан на видео в начале поста.</p>
+<h2>Пишем HTML</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>word.php<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>POST<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>date<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>birth<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Введите ФИО<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tel<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tel<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Введите телефон<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>city<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Введите город<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>purpose<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Введите цель<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>startYear<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Введите начальный год обучения<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lastYear<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Введите конечный год обучения<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>university<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Введите университет<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>about<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">cols</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>30<span class="token punctuation">"</span></span> <span class="token attr-name">rows</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>О себе<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Отправить<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>Просто форма, у которой несколько полей, у каждого есть name, который и свяжет нашу разметку и php-код.</p>
+<h2>Настройка шаблона</h2>
+<p>Этот процесс лучше посмотреть на видео, чем описать словами.</p>
+<h2>PHP-обработчик</h2>
+<pre class="language-php"><code class="language-php"><span class="token keyword">require_once</span> <span class="token string single-quoted-string">'vendor/autoload.php'</span><span class="token punctuation">;</span><br><br><span class="token variable">$document</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>PhpOffice<span class="token punctuation">\</span>PhpWord<span class="token punctuation">\</span>TemplateProcessor</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'./review.docx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token variable">$uploadDir</span> <span class="token operator">=</span>  <span class="token constant">__DIR__</span><span class="token punctuation">;</span><br><span class="token variable">$outputFile</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'review_full.docx'</span><span class="token punctuation">;</span><br><br><span class="token variable">$uploadFile</span> <span class="token operator">=</span> <span class="token variable">$uploadDir</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'\\'</span> <span class="token operator">.</span> <span class="token function">basename</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$uploadFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token variable">$birthdate</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'birth'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$tel</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tel'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$city</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$purpose</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'purpose'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$startYear</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'startYear'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$lastYear</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'lastYear'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$university</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'university'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token variable">$about</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'about'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><br><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">,</span> <span class="token variable">$name</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'birthdate'</span><span class="token punctuation">,</span> <span class="token variable">$birth</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'tel'</span><span class="token punctuation">,</span> <span class="token variable">$tel</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'city'</span><span class="token punctuation">,</span> <span class="token variable">$city</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'purpose'</span><span class="token punctuation">,</span> <span class="token variable">$purpose</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'startYear'</span><span class="token punctuation">,</span> <span class="token variable">$startYear</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'lastYear'</span><span class="token punctuation">,</span> <span class="token variable">$lastYear</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'university'</span><span class="token punctuation">,</span> <span class="token variable">$university</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'about'</span><span class="token punctuation">,</span> <span class="token variable">$about</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">setImageValue</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'image'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'path'</span> <span class="token operator">=></span> <span class="token variable">$uploadFile</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'width'</span> <span class="token operator">=></span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'height'</span> <span class="token operator">=></span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'ratio'</span> <span class="token operator">=></span> <span class="token constant boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token variable">$document</span><span class="token operator">-></span><span class="token function">saveAs</span><span class="token punctuation">(</span><span class="token variable">$outputFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><br><span class="token comment">// Имя скачиваемого файла</span><br><span class="token variable">$downloadFile</span> <span class="token operator">=</span> <span class="token variable">$outputFile</span><span class="token punctuation">;</span><br><br><span class="token comment">// Контент-тип означающий скачивание</span><br><span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Content-Type: application/octet-stream"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// Размер в байтах</span><br><span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Accept-Ranges: bytes"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// Размер файла</span><br><span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Content-Length: "</span><span class="token operator">.</span><span class="token function">filesize</span><span class="token punctuation">(</span><span class="token variable">$downloadFile</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// Расположение скачиваемого файла</span><br><span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Content-Disposition: attachment; filename="</span><span class="token operator">.</span><span class="token variable">$downloadFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// Прочитать файл</span><br><span class="token function">readfile</span><span class="token punctuation">(</span><span class="token variable">$downloadFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><br><span class="token function">unlink</span><span class="token punctuation">(</span><span class="token variable">$uploadFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token function">unlink</span><span class="token punctuation">(</span><span class="token variable">$outputFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Может показаться, что кода много, но по сути он очень простой.</p>
+<ol>
+<li>Сперва мы используем <code>TemplateProcessor</code>, чтобы начать работу с шаблоном</li>
+<li>Затем создаем переменные, в которых получаем данные из супермассива <code>$_POST</code> - то есть как раз наши данные формы</li>
+<li>Далее, с помощью метода <code>setValue</code> сопоставляем наши переменные и данные из шаблона. То есть мы просто используем шаблон и в него подставляем данные</li>
+<li>Следующий шаг — сохранить все через команду <code>saveAs</code>.</li>
+<li>А далее — скачивание файла через <code>readfile</code> и удаление его же через <code>unlink</code>.</li>
+</ol>
+<p>Надеюсь, вам поможет эта статья. Если же нет — посмотрите видео, все же видео-формат более нагляден.</p>
+<p>Удачи!</p>
+
+      </div>
+      
+        <div class="post-sources">
+          Исходники по данной теме:
+          <a href="https://github.com/maxdenaro/maxgraph-youtube-source/tree/master/PHP-%D1%84%D0%B8%D1%87%D0%B8%20%E2%84%961.%20%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D0%B8%D0%B7%20%D1%84%D0%BE%D1%80%D0%BC%D1%8B%20%D0%B2%20Word" target="_blank" class="post-sources__link">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#link"></use>
+            </svg>
+            github
+          </a>
+        </div>
+      
+      <div class="post-links">
+          <a href="/izmenenie-aktivnogo-punkta-menyu-pri-skrolle/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/ustanovka-recaptcha-na-svoj-sajt/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/ustanovka-recaptcha-na-svoj-sajt/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">PHP</span>
+                    <img src="/ustanovka-recaptcha-na-svoj-sajt/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Установка reCaptcha на свой сайт</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

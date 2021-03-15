@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#151515">
+  <title>Добавляем Яндекс.Карты на сайт | Блог веб-разработчика MaxGraph</title>
+  <meta name="description" content="Как подключить яндекс карту? Рассказываю в статье">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Добавляем Яндекс.Карты на сайт | Блог веб-разработчика MaxGraph">
+  <meta property="og:site_name" content="Как подключить яндекс карту? Рассказываю в статье">
+  <meta property="og:url" content="https://blog.maxgraph.ru/dobavlyaem-yandekskarty-na-sajt/">
+  <meta property="og:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Добавляем Яндекс.Карты на сайт">
+  <meta name="twitter:description" content="Как подключить яндекс карту? Рассказываю в статье">
+  <meta name="twitter:site" content="https://blog.maxgraph.ru/dobavlyaem-yandekskarty-na-sajt/">
+  <meta name="twitter:image" content="https://blog.maxgraph.ru/assets/images/pstshrng.jpg">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/vendor.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="search">
+  <div class="container">
+    <div class="search__top">
+      <a class="logo search__logo" aria-hidden="true">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+      <button class="btn-reset search__close" aria-label="Закрыть поиск">
+        <svg>
+          <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    <form action="#" class="search__form">
+      <input type="search" class="search__input" placeholder="Поиск">
+      <div class="search__dropdown">
+        <ul class="search__list" data-simplebar>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="site-container">
+    <header class="header">
+      <div class="container header__container">
+        <a href="/" class="logo header__logo" aria-label="Логотип MaxGraph">
+          <svg>
+            <use xlink:href="/assets/img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="nav__link">youtube</a></li>
+              <li class="nav__item"><a href="https://t.me/maxdenaro" target="_blank" class="nav__link">telegram</a></li>
+            </ul>
+          </nav>
+          <button class="btn-reset search-btn header__search" aria-label="Открыть поиск">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="btn-reset theme-switch" aria-label="Сменить тему сайта">
+            <svg class="theme-switch__icon dark">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-dark"></use>
+            </svg>
+            <svg class="theme-switch__icon light">
+              <use xlink:href="/assets/img/sprite.svg#toggle-to-light"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+<main class="main">
+  <div class="container post-container grid">
+    <article class="post">
+      <div class="post__top">
+        
+          <img class="post__image" loading="lazy" src="img/cover.jpg" aria-hidden="true" alt="">
+        
+        <div class="post__props">
+          <span class="post__category">JS</span>
+          <time class="post__date" datetime="2018-02-03">03 февраля 2018</time>
+          <span class="post__readtime">2 min</span>
+        </div>
+        <h1 class="post__title">Добавляем Яндекс.Карты на сайт</h1>
+        <p class="post__descr">
+          Привет! Начинаю рассказ о яндекс.картах первой статьей - про подключение
+        </p>
+      </div>
+      <div class="post-content">
+        <h2>Вступление</h2>
+<p>Яндекс карты - самые использующиеся карты в нашей стране, оно и не мудрено. Очень многие сайты используют их у себя, потому что это удобно и работает. У карт от Яндекса неплохое API, хотя местами я хотел бы, чтоб его доработали :) Тем не менее, работать можно и весьма удобно. Поехали!</p>
+<h2>Что нужно для работы?</h2>
+<p>Для работы с картами нам нужно создать на сайте div с id=&quot;map&quot;. Это базовая разметка. Этому блоку нужно будет задать размеры для корректного отображения карты. Затем в скриптах подключаем Yandex API.</p>
+<p>После подключения API нам доступны все его функции. В данный момент, мы подключили версию 2.1, но можно вполне работать и с 2.0.</p>
+<h2>Создание карты</h2>
+<pre class="language-js"><code class="language-js">ymaps<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> myMap<span class="token punctuation">;</span><br><br>  <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br>    myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ymaps<span class="token punctuation">.</span>Map</span><span class="token punctuation">(</span><span class="token string">"map"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>      center<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">55.76</span><span class="token punctuation">,</span> <span class="token number">37.64</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>      zoom<span class="token operator">:</span> <span class="token number">7</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>Это так же базовая разметка, в которой &quot;map&quot; - это id нашего контейнера. цифры в переменной center - это определение центра карты. Найти нужный центр всегда можно в специальном <a href="https://tech.yandex.ru/maps/geocoder/">Геокодере</a>. Zoom - то значение, на которое наша карта изначально будет &quot;отзумлена&quot;. Это значение также можно посмотреть в геокодере.</p>
+<h2>Усложняем задачу</h2>
+<p>Теперь вы знаете как создать простую карту, но как сделать маркер на ней? Весьма просто.</p>
+<p>Помимо самой метки я добавил еще парочку изменений, о которых так же расскажу. Для начала, в самом верху мы добавляем переменную для маркера - myPlacemark. Именно с этой переменной мы и будем работать.</p>
+<pre class="language-js"><code class="language-js">ymaps<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span>init<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">let</span> myMap<span class="token punctuation">,</span><br>  myPlacemark<span class="token punctuation">;</span><br><br><span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br>  myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ymaps<span class="token punctuation">.</span>Map</span><span class="token punctuation">(</span><span class="token string">"map"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>    center<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">55.76</span><span class="token punctuation">,</span> <span class="token number">37.64</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>    zoom<span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span><br>    controls<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'zoomControl'</span><span class="token punctuation">]</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  myMap<span class="token punctuation">.</span>behaviors<span class="token punctuation">.</span><span class="token function">disable</span><span class="token punctuation">(</span><span class="token string">'scrollZoom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  myPlacemark <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ymaps<span class="token punctuation">.</span>Placemark</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">57.01115476272839</span><span class="token punctuation">,</span><span class="token number">40.974302929774815</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>    hintContent<span class="token operator">:</span> <span class="token string">'Собственный значок метки'</span><span class="token punctuation">,</span><br>    balloonContent<span class="token operator">:</span> <span class="token string">'Это красивая метка'</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>    iconLayout<span class="token operator">:</span> <span class="token string">'default#image'</span><span class="token punctuation">,</span><br>    iconImageHref<span class="token operator">:</span> <span class="token string">'img/map-marker.png'</span><span class="token punctuation">,</span><br>    iconImageSize<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">54</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>    iconImageOffset<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">53</span><span class="token punctuation">]</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  myMap<span class="token punctuation">.</span>geoObjects<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>myPlacemark<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Как Вы могли заметить, у нас добавилась еще строчка <code>controls: ['zoomControl']</code>. Эта строка добавляет (если не было) на карту полоску скролла для зумминга карты. Очень удобно. <code>myMap.behaviors.disable('scrollZoom');</code>- отключение зумминга карты при скроллинге мышью. Очень важная функция, т.к. многие избавляются от зума при скролле мышью.</p>
+<p>Ну наконец, мы доходим до самой метки. В квадратных скобках все те же координаты метки, которые так же можно узнать в геокодере. Удобно.</p>
+<p>Переменная <code>hintContent</code> отвечает за текст, который будет показан при наведении на маркер. Переменная <code>balloonContent</code> - текст, который будет показан по нажатию. Туда можно и изображение сделать, если вы только захотите)</p>
+<p>Далее - важная часть маркера - его внешний вид. Лично я не признаю встроенных в API видов маркера, поэтому это сразу опущу. Пройдемся по переменным: <code>iconLayout</code> - устанавливает картинку в качестве маркера <code>iconImageHref</code> - определяет путь до вашей пользовательской картинки <code>iconImageSize</code> - определяет размер маркера <code>iconImageOffset</code> - смещение маркера от центра.</p>
+<p>Ну и последнее <code>myMap.geoObjects.add(myPlacemark);</code> - добавление геообъекта myPlacemark на карту <code>myMap</code>.</p>
+<h2>Заключение</h2>
+<p>Тема Яндекс.карт далеко не закончена. Обсудим их в следующих статьях!</p>
+
+      </div>
+      
+      <div class="post-links">
+          <a href="/sozdanie-cookie-preduprezhdeniya-dlya-sajta/" class="post-links__item post-links__item--prev">
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#left-arrow"></use>
+            </svg>
+            предыдущий пост
+          </a>
+        
+          <a href="/izmenenie-aktivnogo-punkta-menyu-pri-skrolle/" class="post-links__item post-links__item--next">
+            следующий пост
+            <svg>
+              <use xlink:href="/assets/img/sprite.svg#right-arrow"></use>
+            </svg>
+          </a>
+        
+      </div>
+      <article class="post-author">
+        <h2 class="visually-hidden">Об авторе блога</h2>
+        <div class="post-author__image">
+          <img src="/assets/img/author.png" loading="lazy" alt="Автор блога Максим Васянович">
+        </div>
+        <div class="post-author__text">
+          <div class="post-author__name">MaxGraph</div>
+          <div class="post-author__position">Автор. Веб-разработчик. Фрилансер. Преподаватель в онлайн-университете.</div>
+          <p class="post-author__descr">
+            Портфолио: <a href="https://maxgraph.ru/" target="_blank">https://maxgraph.ru/</a> <br>
+            Добавляйтесь в друзья <a href="https://vk.com/write11437510" target="_blank">VK!</a> Каждому добавившемуся и
+            написавшему в
+            личку «хочу полезность» — подарю набор крутых
+            ссылок для верстальщика.
+          </p>
+        </div>
+      </article>
+      <div class="post-bottom">
+        <div class="post-bottom__left">
+          <h3 class="post-bottom__title">для обратной связи</h3>
+          <a href="https://t.me/maxdenaro" target="_blank" class="telegram">
+            <span class="telegram__text">telegram: </span>@maxdenaro
+          </a>
+          <span class="post-bottom__text">если вы обнаружили у меня ошибку — пишите, не стесняйтесь! :)</span>
+        </div>
+        <div class="post-bottom__right">
+          <h3 class="post-bottom__title">Поделиться</h3>
+          <ul class="social-share">
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в твиттере" data-social="twitter">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#twitter"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться в Фейсбуке" data-social="facebook">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#facebook"></use>
+                </svg>
+              </button>
+            </li>
+            <li class="social-share__item">
+              <button class="btn-reset social-share__btn" aria-label="Поделиться во Вконтакте" data-social="vk">
+                <svg>
+                  <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside class="post-aside">
+  
+  <div class="post-more">
+    <h2 class="post-more__title">
+      ещё статьи на эту тему:
+    </h2>
+    <ul class="post-more__list">
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/otpravka-soobshheniya-s-sajta-v-whatsapp/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/otpravka-soobshheniya-s-sajta-v-whatsapp/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Отправка сообщения с сайта в WhatsApp</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/prostoj-i-udobnyj-sposob-stilizovat-skroll/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/prostoj-i-udobnyj-sposob-stilizovat-skroll/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Простой и удобный способ стилизовать скролл</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/fiksirovannoe-mobilnoe-menyu-s-ostanovkoj-skrolla/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/fiksirovannoe-mobilnoe-menyu-s-ostanovkoj-skrolla/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Фиксированное мобильное меню с остановкой скролла</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/vzaimodejstvuem-s-kontentom-po-skrollu-scroll-event/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/vzaimodejstvuem-s-kontentom-po-skrollu-scroll-event/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Взаимодействуем с контентом по скроллу (scroll event)</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/mnogostrochnoe-obrezanie-teksta-s-pomoshhyu-js/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/mnogostrochnoe-obrezanie-teksta-s-pomoshhyu-js/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Многострочное обрезание текста с помощью js</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+          
+            <li class="post-more__item">
+              <article class="more-post">
+                <a href="/effekt-perestanovki-teksta-shuffle-effect-for-letters/" class="more-post__link">
+                  <div class="more-post__image">
+                    <span class="more-post__category">JS</span>
+                    <img src="/effekt-perestanovki-teksta-shuffle-effect-for-letters/img/cover.jpg" loading="lazy" alt="Обложка поста">
+                  </div>
+                  <div class="more-post__text">
+                    <h3 class="more-post__title">Эффект «перестановки» текста. Shuffle effect for letters</h3>
+                  </div>
+                </a>
+              </article>
+            </li>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+  
+</aside>
+
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__container">
+      <div class="footer__info">
+        <h2 class="footer__title">этот блог о веб-разработке.</h2>
+        <p class="footer__descr">лайфхаки, полезные сервисы, софт, а так же внутренняя кухня фриланса. здесь каждый найдет для себя что-то полезное!</p>
+      </div>
+      <div class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item"><a href="https://www.youtube.com/channel/UCxJyCit95jsb-JLE3kXnq1Q" target="_blank" class="contacts__link">youtube</a></li>
+          <li class="contacts__item"><a href="https://t.me/maxdenaro" target="_blank" class="contacts__link">telegram</a></li>
+          <li class="contacts__item"><a href="https://vk.com/write11437510" target="_blank" class="contacts__link">vk</a></li>
+        </ul>
+        <form class="contacts__form" method="POST" target="_blank"
+          action="https://money.yandex.ru/quickpay/confirm.xml">
+          <input type="hidden" name="receiver" value="410015482170627">
+          <input type="hidden" name="formcomment" value="На поддержка проекта">
+          <input type="hidden" name="short-dest" value="Поддержка проекта 'MaxGraph - блог веб-разработчика'">
+          <input type="hidden" name="label" value="$order_id">
+          <input type="hidden" name="quickpay-form" value="donate">
+          <input type="hidden" name="targets" value="Поддержка проекта MaxGraph">
+          <input type="hidden" name="sum" value="100" data-type="number">
+          <input type="submit" value="Поддержать проект" class="btn-reset contacts__donate">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="year">2021</span> &copy; MaxGraph
+  </div>
+</footer>
+
+
+</div>
+
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+  const year = new Date().getFullYear();
+  document.querySelector('.year').textContent = year;
+</script>
+</body>
+
+</html>
+

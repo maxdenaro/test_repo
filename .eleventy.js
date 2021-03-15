@@ -1,4 +1,4 @@
-const pageAssetsPlugin = require('eleventy-plugin-page-assets');
+const pageAssetsPlugin = require('./helpers/eleventy-plugin-page-assets');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require('eleventy-plugin-reading-time');
 const moment = require('moment-timezone');
